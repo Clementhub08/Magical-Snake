@@ -2837,7 +2837,7 @@ if (banane.active && (
 
     activerInversionControles();
 
-    ajouterScore(30);
+    ajouterScore(2);
 
     aMangeQuelqueChose = true;
 
@@ -5778,6 +5778,7 @@ caseSkinDore.addEventListener("change", function () {
 });
 
 let classement = document.getElementById("classement");
+let podiumClassement = document.getElementById("podiumClassement");
 let listeClassement = document.getElementById("listeClassement");
 let boutonClassement = document.getElementById("boutonClassement");
 let boutonRetourClassement = document.getElementById("boutonRetourClassement");
@@ -5798,12 +5799,21 @@ boutonRetourClassement.addEventListener("click", function () {
 
 });
 
+function echapperHtml(texte) {
+
+    let div = document.createElement("div");
+    div.textContent = texte;
+    return div.innerHTML;
+
+}
+
 function chargerClassement() {
 
-    listeClassement.innerHTML = "<li>Chargement...</li>";
+    podiumClassement.innerHTML = "<p class='chargementClassement'>Chargement...</p>";
+    listeClassement.innerHTML = "";
 
     if (!db) {
-        listeClassement.innerHTML = "<li>Classement indisponible.</li>";
+        podiumClassement.innerHTML = "<p class='chargementClassement'>Classement indisponible.</p>";
         return;
     }
 
@@ -5813,31 +5823,79 @@ function chargerClassement() {
         .get()
         .then(function (snapshot) {
 
+            podiumClassement.innerHTML = "";
             listeClassement.innerHTML = "";
 
             if (snapshot.empty) {
-                listeClassement.innerHTML = "<li>Aucun score enregistré pour l'instant.</li>";
+                podiumClassement.innerHTML = "<p class='chargementClassement'>Aucun score enregistré pour l'instant.</p>";
                 return;
             }
 
+            let scores = [];
+
             snapshot.forEach(function (doc) {
-
-                let donnees = doc.data();
-
-                let ligne = document.createElement("li");
-                ligne.textContent = donnees.pseudo + " — " + formaterTemps(donnees.temps);
-
-                listeClassement.appendChild(ligne);
-
+                scores.push(doc.data());
             });
+
+            afficherPodium(scores.slice(0, 3));
+            afficherResteDuClassement(scores.slice(3), 4);
 
         })
         .catch(function (erreur) {
 
-            listeClassement.innerHTML = "<li>Erreur lors du chargement.</li>";
+            podiumClassement.innerHTML = "<p class='chargementClassement'>Erreur lors du chargement.</p>";
             console.error(erreur);
 
         });
+
+}
+
+function afficherPodium(podium) {
+
+    let ordreAffichage = [1, 0, 2]; // visuellement : 2e - 1er - 3e
+    let medailles = ["🥇", "🥈", "🥉"];
+
+    for (let position of ordreAffichage) {
+
+        let joueur = podium[position];
+
+        let carte = document.createElement("div");
+        carte.className = "cartePodium position" + (position + 1);
+
+        if (!joueur) {
+            carte.classList.add("cartePodiumVide");
+            podiumClassement.appendChild(carte);
+            continue;
+        }
+
+        carte.innerHTML =
+            "<div class='medaillePodium'>" + medailles[position] + "</div>" +
+            "<div class='pseudoPodium'>" + echapperHtml(joueur.pseudo) + "</div>" +
+            "<div class='tempsPodium'>" + formaterTemps(joueur.temps) + "</div>";
+
+        podiumClassement.appendChild(carte);
+
+    }
+
+}
+
+function afficherResteDuClassement(reste, rangDepart) {
+
+    listeClassement.innerHTML = "";
+
+    for (let i = 0; i < reste.length; i++) {
+
+        let joueur = reste[i];
+        let ligne = document.createElement("li");
+
+        ligne.innerHTML =
+            "<span class='rangListe'>" + (rangDepart + i) + "</span>" +
+            "<span class='pseudoListe'>" + echapperHtml(joueur.pseudo) + "</span>" +
+            "<span class='tempsListe'>" + formaterTemps(joueur.temps) + "</span>";
+
+        listeClassement.appendChild(ligne);
+
+    }
 
 }
 
