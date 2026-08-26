@@ -180,6 +180,7 @@ let boutonMenuPause = document.getElementById("boutonMenuPause");
 let flashFusion = document.getElementById("flashFusion");
 let finFusion = document.getElementById("finFusion");
 let texteFusion = document.getElementById("texteFusion");
+let tempsFusionElement = document.getElementById("tempsFusion");
 let canvasSerpentDore = document.getElementById("canvasSerpentDore");
 let ctxSerpentDore = canvasSerpentDore.getContext("2d");
 let boutonMenuFusion = document.getElementById("boutonMenuFusion");
@@ -1364,16 +1365,44 @@ document.addEventListener("click", function () {
 let modalPseudo = document.getElementById("modalPseudo");
 let champPseudo = document.getElementById("champPseudo");
 let boutonValiderPseudo = document.getElementById("boutonValiderPseudo");
+let boutonAnnulerPseudo = document.getElementById("boutonAnnulerPseudo");
+let boutonChangerPseudo = document.getElementById("boutonChangerPseudo");
+let valeurPseudoActuel = document.getElementById("valeurPseudoActuel");
+
+let contexteModalPseudo = "jeu";
+
+function afficherPseudoActuel() {
+    valeurPseudoActuel.textContent = recupererPseudo() || "(non défini)";
+}
+
+afficherPseudoActuel();
 
 boutonJouer.addEventListener("click", function () {
 
     if (!recupererPseudo()) {
+        contexteModalPseudo = "jeu";
         modalPseudo.style.display = "flex";
         champPseudo.focus();
         return;
     }
 
     demarrerPartieDepuisMenu();
+
+});
+
+boutonChangerPseudo.addEventListener("click", function () {
+
+    contexteModalPseudo = "personnaliser";
+    champPseudo.value = recupererPseudo() || "";
+    modalPseudo.style.display = "flex";
+    champPseudo.focus();
+
+});
+
+boutonAnnulerPseudo.addEventListener("click", function () {
+
+    modalPseudo.style.display = "none";
+    champPseudo.value = "";
 
 });
 
@@ -1401,6 +1430,13 @@ boutonValiderPseudo.addEventListener("click", function () {
     sauvegarderPseudo(valeur);
     modalPseudo.style.display = "none";
     champPseudo.value = "";
+
+    afficherPseudoActuel();
+
+    if (contexteModalPseudo === "personnaliser") {
+        contexteModalPseudo = "jeu";
+        return;
+    }
 
     demarrerPartieDepuisMenu();
 
@@ -2158,6 +2194,7 @@ arreterAnimationSerpentDore();
 
 finFusion.style.display = "none";
 texteFusion.classList.remove("visible");
+tempsFusionElement.classList.remove("visible");
 texteFusionIntro.classList.remove("visible");
 conteneurSerpentDore.classList.remove("visible");
 boutonMenuFusion.classList.remove("visible");
@@ -4959,6 +4996,8 @@ function declencherFusion() {
     let tempsFinalVictoire = Date.now() - debutChrono - tempsPauseAccumule;
     enregistrerVictoire(tempsFinalVictoire);
 
+    tempsFusionElement.textContent = "Ton temps : " + formaterTemps(tempsFinalVictoire);
+
     phaseFin = "fusion";
 
     chronoActif = false;
@@ -5002,10 +5041,11 @@ function declencherFusion() {
 
     }, 3300);
 
-    setTimeout(function () {
+       setTimeout(function () {
 
         // 4. Une fois la fumée dissipée, le texte de conclusion apparaît
         texteFusion.classList.add("visible");
+        tempsFusionElement.classList.add("visible");
 
     }, 7700);
 
@@ -5424,6 +5464,7 @@ boutonMenuFusion.addEventListener("click", function () {
 
     finFusion.style.display = "none";
     texteFusion.classList.remove("visible");
+    tempsFusionElement.classList.remove("visible");
     texteFusionIntro.classList.remove("visible");
    conteneurSerpentDore.classList.remove("visible");
     boutonMenuFusion.classList.remove("visible");
@@ -5868,10 +5909,11 @@ function afficherPodium(podium) {
             continue;
         }
 
-        carte.innerHTML =
-            "<div class='medaillePodium'>" + medailles[position] + "</div>" +
-            "<div class='pseudoPodium'>" + echapperHtml(joueur.pseudo) + "</div>" +
-            "<div class='tempsPodium'>" + formaterTemps(joueur.temps) + "</div>";
+      carte.innerHTML =
+    "<div class='rangPodium'>" + (position + 1) + "</div>" +
+    "<div class='medaillePodium'>" + medailles[position] + "</div>" +
+    "<div class='pseudoPodium'>" + echapperHtml(joueur.pseudo) + "</div>" +
+    "<div class='tempsPodium'>" + formaterTemps(joueur.temps) + "</div>";
 
         podiumClassement.appendChild(carte);
 
