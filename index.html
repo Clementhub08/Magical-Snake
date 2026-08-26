@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+
+<link rel="preload" as="image" href="assets/jardin.png">
+<link rel="preload" as="image" href="assets/Jardin2.png">
+<link rel="preload" as="image" href="assets/foret.png">
+
+    <title>MAGICAL SNAKE</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- MENU PRINCIPAL -->
+
+    <div id="menu">
+
+       <div id="titreConteneur">
+
+    <svg id="cadreLianes" viewBox="0 0 640 170" preserveAspectRatio="none">
+
+    <defs>
+        <linearGradient id="degradeTige" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#7a8f3f"/>
+            <stop offset="100%" stop-color="#4d5c26"/>
+        </linearGradient>
+        <linearGradient id="degradeFeuille1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#8fae52"/>
+            <stop offset="100%" stop-color="#5c7c34"/>
+        </linearGradient>
+        <linearGradient id="degradeFeuille2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#6f8f3e"/>
+            <stop offset="100%" stop-color="#465c22"/>
+        </linearGradient>
+        <linearGradient id="degradeFeuille3" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#5c8038"/>
+            <stop offset="100%" stop-color="#3a4d1c"/>
+        </linearGradient>
+    </defs>
+
+    <rect x="14" y="14" width="612" height="142" rx="30"
+          fill="none" stroke="url(#degradeTige)" stroke-width="4"
+          stroke-linecap="round" stroke-dasharray="1 7"/>
+
+    <path d="M14,44 C0,44 0,20 20,20 C34,20 34,34 22,34" fill="none" stroke="url(#degradeTige)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M626,44 C640,44 640,20 620,20 C606,20 606,34 618,34" fill="none" stroke="url(#degradeTige)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M14,126 C0,126 0,150 20,150 C34,150 34,136 22,136" fill="none" stroke="url(#degradeTige)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M626,126 C640,126 640,150 620,150 C606,150 606,136 618,136" fill="none" stroke="url(#degradeTige)" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Bord haut : buisson dense -->
+    <g transform="translate(30,16) rotate(-30) scale(0.8)"><g class="feuilleSvg" style="animation-delay:0s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+    <g transform="translate(55,12) rotate(-10) scale(0.65)"><g class="feuilleSvg" style="animation-delay:0.3s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille3)"/></g></g>
+    <g transform="translate(90,15) rotate(-35) scale(0.9)"><g class="feuilleSvg" style="animation-delay:0.6s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille2)"/></g></g>
+    <g transform="translate(130,10) rotate(15) scale(0.7)"><g class="feuilleSvg" style="animation-delay:0.9s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+    <g transform="translate(165,14) rotate(-20) scale(0.85)"><g class="feuilleSvg" style="animation-delay:1.2s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille3)"/></g></g>
+    <g transform="translate(200,10) rotate(25) scale(0.65)"><g class="feuilleSvg" style="animation-delay:0.2s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille2)"/></g></g>
+    <g transform="translate(240,15) rotate(-15) scale(0.9)"><g class="feuilleSvg" style="animation-delay:0.5s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+    <g transform="translate(280,11) rotate(20) scale(0.7)"><g class="feuilleSvg" style="animation-delay:0.8s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille3)"/></g></g>
+    <g transform="translate(320,14) rotate(-25) scale(0.85)"><g class="feuilleSvg" style="animation-delay:1.1s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille2)"/></g></g>
+    <g transform="translate(360,10) rotate(15) scale(0.65)"><g class="feuilleSvg" style="animation-delay:1.4s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+    <g transform="translate(400,15) rotate(-30) scale(0.9)"><g class="feuilleSvg" style="animation-delay:0.1s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille3)"/></g></g>
+    <g transform="translate(440,11) rotate(20) scale(0.7)"><g class="feuilleSvg" style="animation-delay:0.4s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille2)"/></g></g>
+    <g transform="translate(480,14) rotate(-15) scale(0.85)"><g class="feuilleSvg" style="animation-delay:0.7s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+    <g transform="translate(515,10) rotate(25) scale(0.65)"><g class="feuilleSvg" style="animation-delay:1.0s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille3)"/></g></g>
+    <g transform="translate(550,15) rotate(-20) scale(0.9)"><g class="feuilleSvg" style="animation-delay:1.3s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille2)"/></g></g>
+    <g transform="translate(585,12) rotate(30) scale(0.7)"><g class="feuilleSvg" style="animation-delay:1.6s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+    <g transform="translate(610,16) rotate(-10) scale(0.8)"><g class="feuilleSvg" style="animation-delay:0.25s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille3)"/></g></g>
+
+    <!-- Bord bas : buisson dense -->
+    <g transform="translate(30,154) rotate(150) scale(0.8)"><g class="feuilleSvg" style="animation-delay:0.15s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille2)"/></g></g>
+    <g transform="translate(65,158) rotate(200) scale(0.65)"><g class="feuilleSvg" style="animation-delay:0.45s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+    <g transform="translate(100,155) rotate(165) scale(0.9)"><g class="feuilleSvg" style="animation-delay:0.75s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille3)"/></g></g>
+    <g transform="translate(140,159) rotate(195) scale(0.7)"><g class="feuilleSvg" style="animation-delay:1.05s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille2)"/></g></g>
+    <g transform="translate(180,155) rotate(155) scale(0.85)"><g class="feuilleSvg" style="animation-delay:1.35s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+    <g transform="translate(220,159) rotate(205) scale(0.65)"><g class="feuilleSvg" style="animation-delay:0.05s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille3)"/></g></g>
+    <g transform="translate(260,155) rotate(165) scale(0.9)"><g class="feuilleSvg" style="animation-delay:0.35s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille2)"/></g></g>
+    <g transform="translate(300,158) rotate(195) scale(0.7)"><g class="feuilleSvg" style="animation-delay:0.65s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+    <g transform="translate(340,154) rotate(150) scale(0.85)"><g class="feuilleSvg" style="animation-delay:0.95s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille3)"/></g></g>
+    <g transform="translate(380,159) rotate(210) scale(0.65)"><g class="feuilleSvg" style="animation-delay:1.25s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille2)"/></g></g>
+    <g transform="translate(420,155) rotate(160) scale(0.9)"><g class="feuilleSvg" style="animation-delay:1.55s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+    <g transform="translate(460,158) rotate(200) scale(0.7)"><g class="feuilleSvg" style="animation-delay:0.1s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille3)"/></g></g>
+    <g transform="translate(500,155) rotate(155) scale(0.85)"><g class="feuilleSvg" style="animation-delay:0.4s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille2)"/></g></g>
+    <g transform="translate(540,159) rotate(205) scale(0.65)"><g class="feuilleSvg" style="animation-delay:0.7s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+    <g transform="translate(580,154) rotate(165) scale(0.9)"><g class="feuilleSvg" style="animation-delay:1.0s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille3)"/></g></g>
+    <g transform="translate(610,158) rotate(195) scale(0.75)"><g class="feuilleSvg" style="animation-delay:1.3s"><path d="M0,0 C6,-16 22,-16 28,0 C22,16 6,16 0,0 Z" fill="url(#degradeFeuille2)"/></g></g>
+
+    <!-- Côté gauche : buisson dense -->
+    <g transform="translate(16,35) rotate(95) scale(0.8)"><g class="feuilleSvg" style="animation-delay:0.2s"><path d="M0,0 C6,-14 20,-14 26,0 C20,14 6,14 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+    <g transform="translate(12,65) rotate(75) scale(0.65)"><g class="feuilleSvg" style="animation-delay:0.5s"><path d="M0,0 C6,-14 20,-14 26,0 C20,14 6,14 0,0 Z" fill="url(#degradeFeuille3)"/></g></g>
+    <g transform="translate(15,95) rotate(105) scale(0.85)"><g class="feuilleSvg" style="animation-delay:0.8s"><path d="M0,0 C6,-14 20,-14 26,0 C20,14 6,14 0,0 Z" fill="url(#degradeFeuille2)"/></g></g>
+    <g transform="translate(12,125) rotate(85) scale(0.7)"><g class="feuilleSvg" style="animation-delay:1.1s"><path d="M0,0 C6,-14 20,-14 26,0 C20,14 6,14 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+    <g transform="translate(17,150) rotate(115) scale(0.6)"><g class="feuilleSvg" style="animation-delay:0.3s"><path d="M0,0 C6,-14 20,-14 26,0 C20,14 6,14 0,0 Z" fill="url(#degradeFeuille3)"/></g></g>
+
+    <!-- Côté droit : buisson dense -->
+    <g transform="translate(624,35) rotate(-95) scale(0.8)"><g class="feuilleSvg" style="animation-delay:0.6s"><path d="M0,0 C6,-14 20,-14 26,0 C20,14 6,14 0,0 Z" fill="url(#degradeFeuille2)"/></g></g>
+    <g transform="translate(628,65) rotate(-75) scale(0.65)"><g class="feuilleSvg" style="animation-delay:0.9s"><path d="M0,0 C6,-14 20,-14 26,0 C20,14 6,14 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+    <g transform="translate(625,95) rotate(-105) scale(0.85)"><g class="feuilleSvg" style="animation-delay:1.2s"><path d="M0,0 C6,-14 20,-14 26,0 C20,14 6,14 0,0 Z" fill="url(#degradeFeuille3)"/></g></g>
+    <g transform="translate(628,125) rotate(-85) scale(0.7)"><g class="feuilleSvg" style="animation-delay:1.5s"><path d="M0,0 C6,-14 20,-14 26,0 C20,14 6,14 0,0 Z" fill="url(#degradeFeuille2)"/></g></g>
+    <g transform="translate(623,150) rotate(-115) scale(0.6)"><g class="feuilleSvg" style="animation-delay:0.15s"><path d="M0,0 C6,-14 20,-14 26,0 C20,14 6,14 0,0 Z" fill="url(#degradeFeuille1)"/></g></g>
+
+</svg>
+
+    <h1>MAGICAL SNAKE</h1>
+
+</div>
+
+        <button id="boutonJouer">Jouer</button>
+
+        <button id="boutonRegles">Règles</button>
+
+        <button id="boutonPersonnaliser">Personnaliser</button>
+
+        <button id="boutonClassement">Classement</button>
+
+    <button id="boutonLore" style="display: none;">Lore</button>
+
+    </div>
+
+
+    <!-- FENÊTRE RÈGLES -->
+
+    <div id="regles">
+
+ <div id="contenuRegles">
+
+    <h2>RÈGLES DU JEU</h2>
+
+    <div class="regle">
+        <h3>🎮 Déplacements</h3>
+        <p>Utilise les flèches du clavier pour diriger le serpent.</p>
+    </div>
+
+    <div class="regle">
+        <h3>⏸️ Pause</h3>
+        <p>Appuie sur Échap à tout moment pour mettre la partie en pause.</p>
+    </div>
+
+    <div class="regle">
+        <h3>🍎 Les pommes</h3>
+        <p>Chaque pomme mangée donne <strong>1 point</strong> et fait grandir ton serpent.</p>
+    </div>
+
+    <div class="regle">
+        <h3>☠️ Pommes empoisonnées</h3>
+        <p>Dès 5 points, des pommes empoisonnées apparaissent. Elles ne donnent aucun point et mettent fin à la partie si tu les manges.</p>
+    </div>
+
+    <div class="regle">
+        <h3>🏆 Objectif</h3>
+        <p>Atteins <strong>50 points</strong> pour gagner la partie, le plus rapidement possible !</p>
+    </div>
+
+    <div class="regle">
+        <h3>🍇 Fruits magiques</h3>
+        <p>Au fil de la partie, des fruits magiques apparaissent. Chacun a un effet différent à découvrir... et rapporte des points !</p>
+
+        <div class="grilleFruits">
+
+            <div class="carteFruit">
+                <span class="emojiFruit">🍇</span>
+                <span class="nomFruit">Raisin</span>
+                <span class="seuilFruit">Dès 8 points</span>
+                <span class="pointsFruit">Effet mystère</span>
+            </div>
+
+            <div class="carteFruit">
+                <span class="emojiFruit">🍌</span>
+                <span class="nomFruit">Banane</span>
+                <span class="seuilFruit">Dès 12 points</span>
+                <span class="pointsFruit">+2 points</span>
+            </div>
+
+            <div class="carteFruit">
+                <span class="emojiFruit">🥥</span>
+                <span class="nomFruit">Noix de coco</span>
+                <span class="seuilFruit">Dès 20 points</span>
+                <span class="pointsFruit">+3 points</span>
+            </div>
+
+            <div class="carteFruit">
+                <span class="emojiFruit">🥝</span>
+                <span class="nomFruit">Kiwi</span>
+                <span class="seuilFruit">Dès 30 points</span>
+                <span class="pointsFruit">+3 points</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="regle">
+        <h3>🧱 Bordures</h3>
+        <p>Le serpent traverse les bords de l'écran et ressort de l'autre côté.</p>
+    </div>
+
+    <div class="regle">
+        <h3>⏱️ Chronomètre</h3>
+        <p>Un chrono démarre dès le début de la partie. Tente le meilleur temps possible !</p>
+    </div>
+
+    <button id="boutonRetourRegles">Retour</button>
+
+</div>
+
+        </div>
+
+    </div>
+
+
+<!-- FENÊTRE LORE -->
+
+<div id="lore">
+
+    <div id="contenuLore">
+
+        <span id="croixLore">✝️</span>
+
+        <h2>LORE</h2>
+
+        <div id="texteLore">
+
+            <p class="paragrapheLore lettrine">Votre périple a commencé modestement dans un jardin puis à force de courir après ces fruits magiques vous avez fini par vous éloigner et finir dans une forêt un peu spéciale qui cachait un enseignement de vie important.</p>
+
+            <p class="paragrapheLore">Comme vous l'avez compris en finissant le jeu, le serpent qui vous a suivi durant la seconde phase du jeu n'était pas un serpent quelconque, c'était votre passé qui emmagasinait vos peurs, vos doutes, vos rejets et vos échecs.</p>
+
+            <p class="paragrapheLore">Ce serpent a toujours été là, le saviez-vous ?</p>
+
+            <p class="paragrapheLore">La seule et unique chose qui vous a permis de voir et de matérialiser cette peur, c'est la pomme noire ancestrale, celle que vous avez mangée à la moitié du jeu.</p>
+
+            <p class="paragrapheLore">Suite à ça votre passé vous a pourchassé pendant de longues minutes essayant de mettre fin à vos espoirs de réussites.</p>
+
+            <div class="separateurLore">✦ ✦ ✦</div>
+
+            <p class="paragrapheLore">Puis après une énième course-poursuite le serpent s'est arrêté et en observant celui-ci vous avez pu constater qu'il n'était peut-être pas aussi dangereux que ça, qu'il suffirait peut-être juste de s'en approcher pour mieux le comprendre.</p>
+
+            <p class="paragrapheLore">Et en effet tout ce poids qui vous suivait depuis longtemps, n'était peut-être pas mauvais.</p>
+
+            <p class="paragrapheLore">Vue comme ça il paraît hostile même dangereux mais en réalité si vous domptez vos peurs et les mauvaises choses du passé, vous pourriez probablement en tirer de bonnes leçons de vie, c'est même leçons de vie que vous pourriez utiliser pour le reste de votre vie à bon escient.</p>
+
+            <p class="paragrapheLore">Oui j'ai fait exprès de ne pas vous laisser d'autre choix que d'accepter votre passé, car en l'acceptant on accepte aussi ses erreurs et ses défauts, c'est réellement comme ça qu'on avance et qu'on devient meilleur.</p>
+
+            <div class="separateurLore">✦ ✦ ✦</div>
+
+            <p class="paragrapheLore citationLore">Exemple :<br>J'imagine que vous n'avez pas réussi le jeu du premier coup, n'est-ce pas ?</p>
+
+            <p class="paragrapheLore">Néanmoins, avez-vous remarqué qu'à chaque fois que vous avez relancé une partie, votre niveau et votre connaissance du jeu s'amélioraient.</p>
+
+            <p class="paragrapheLore">Si vous avez fini le jeu, vous avez en quelques sortes aussi vaincu ce serpent venimeux en vous, vous avez en quelques sortes vaincu votre passé, en tout cas suite à ça vous avez les idées pour réussir.</p>
+
+            <p class="paragrapheLore">Et au contraire, imaginez si vous aviez quitté le jeu sans l'avoir fini, soit parce qu'il vous énervait car il est dur certes, soit car vous aviez peur de ne pas avoir le niveau, peur de ne pas réussir.</p>
+
+            <p class="paragrapheLore">Mais moi je vous le dis le plus important c'est d'apprendre pour avoir les armes nécessaires afin de connaître la paix intérieure, la paix avec soi-même.</p>
+
+            <p class="paragrapheLore finaleLore">Et si mon modeste jeu vous l'a fait réaliser c'est donc ça que vous aurez gagné : une rétrospective de vous-même ou bien de la connaissance, les deux restent bons à prendre.</p>
+
+        </div>
+
+        <button id="boutonRetourLore">Retour</button>
+
+    </div>
+
+</div>
+
+<!-- FENÊTRE PERSONNALISER -->
+
+<div id="personnaliser">
+
+    <div id="contenuPersonnaliser">
+
+        <h2>PERSONNALISER LE SERPENT</h2>
+
+        <p>Choisis la couleur de ton serpent :</p>
+
+        <input
+            type="color"
+            id="choixCouleur"
+            value="#00a000"
+        >
+
+  <div id="blocSkinDore" style="display: none;">
+    <label id="labelSkinDore">
+        <input type="checkbox" id="caseSkinDore">
+        Activer le skin doré de la fusion
+    </label>
+  </div>
+
+        <div id="apercuSerpent">
+
+    <!-- CORPS -->
+
+    <div class="morceauApercu"></div>
+
+    <div class="morceauApercu"></div>
+
+
+    <!-- TÊTE -->
+
+    <div class="teteApercu">
+
+        <div class="oeil oeilGauche"></div>
+
+        <div class="oeil oeilDroit"></div>
+
+    </div>
+
+</div>
+
+        <button id="boutonRetourPersonnaliser">
+
+            Retour
+
+        </button>
+
+    </div>
+
+</div>
+
+   <!-- GAME OVER -->
+<div id="gameOver">
+    <div id="contenuGameOver">
+        <h2>GAME OVER</h2>
+        <p id="causeMort"></p>
+        <p id="scoreFinal"></p>
+        <p id="tempsFinal"></p>
+        <button id="boutonRejouer">Rejouer</button>
+        <button id="boutonMenu">Menu</button>
+    </div>
+</div>
+
+
+<!-- PAUSE -->
+<div id="pause">
+    <div id="contenuPause">
+        <h2>PAUSE</h2>
+        <button id="boutonReprendre">Reprendre</button>
+        <button id="boutonRecommencerPause">Recommencer</button>
+        <button id="boutonMenuPause">Menu</button>
+    </div>
+</div>
+
+
+<!-- DEMANDE DE PSEUDO -->
+<div id="modalPseudo">
+    <div id="contenuModalPseudo">
+        <h2>Ton pseudo</h2>
+        <p>Choisis un pseudo pour apparaître dans le classement :</p>
+        <input type="text" id="champPseudo" maxlength="20" placeholder="Ton pseudo">
+        <button id="boutonValiderPseudo">Valider</button>
+    </div>
+</div>
+
+<!-- CLASSEMENT -->
+<div id="classement">
+    <div id="contenuClassement">
+        <h2>Classement</h2>
+        <ol id="listeClassement"></ol>
+        <button id="boutonRetourClassement">Retour</button>
+    </div>
+</div>
+
+<!-- FLASH DE FUSION -->
+<div id="flashFusion"></div>
+
+<!-- ÉCRAN FINAL : FUSION DES DEUX SERPENTS -->
+<div id="finFusion">
+
+    <div class="nuage nuage1"></div>
+    <div class="nuage nuage2"></div>
+    <div class="nuage nuage3"></div>
+    <div class="nuage nuage4"></div>
+    <div class="nuage nuage5"></div>
+
+<p id="texteFusionIntro">Les deux serpents se sont fusionnés pour n'en former qu'un :</p>
+<p id="texteFusion">Il faut savoir accepter son passé<br>pour pouvoir mieux avancer</p>
+
+    <div id="conteneurSerpentDore">
+    <canvas id="canvasSerpentDore" width="700" height="220"></canvas>
+    <canvas id="canvasFumee" width="700" height="220"></canvas>
+</div>
+
+    <button id="boutonMenuFusion">Menu</button>
+
+</div>
+
+  <!-- JEU -->
+
+<div id="jeuContainer">
+    <div id="murGaucheEcran"></div>
+    <p id="score"></p>
+    <p id="messageArene">Il ne faut pas avoir peur de son passé</p>
+    <p id="chrono">00:00.00</p>
+    <canvas id="jeu" width="1200" height="650"></canvas>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="script.js"></script>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

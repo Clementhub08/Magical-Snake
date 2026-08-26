@@ -1,0 +1,1809 @@
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+
+/* MENU PRINCIPAL */
+
+#menu {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background-image: url("assets/jardin.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    z-index: 1;
+
+}
+
+
+#menu h1 {
+
+    margin: -25px 0 35px 0;
+
+    font-size: 62px;
+
+    font-family: 'Georgia', 'Times New Roman', serif;
+
+    letter-spacing: 3px;
+
+    background: linear-gradient(180deg,
+
+        #e8c28a 0%,
+
+        #c9975a 25%,
+
+        #a9713f 55%,
+
+        #8a5a2f 80%,
+
+        #6b4423 100%
+
+    );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    -webkit-text-stroke: 2px #4d2d16;
+
+    text-shadow:
+
+        2px 2px 0 #4d2d16,
+
+        4px 4px 0 #3d2412,
+
+        6px 6px 10px rgba(0, 0, 0, 0.45),
+
+        0 0 30px rgba(232, 194, 138, 0.5);
+
+    position: relative;
+
+}
+
+/* BOUTONS */
+
+#menu button {
+
+    width: 330px;
+
+    margin: 10px;
+
+    padding: 18px 25px;
+
+    font-size: 27px;
+
+    font-weight: bold;
+
+    color: white;
+
+    background-color: #4f8f28;
+
+    border: 5px solid #d8c07a;
+
+    border-radius: 18px;
+
+    box-shadow:
+
+        0 6px 0 #2d5717,
+
+        0 10px 15px rgba(0, 0, 0, 0.25);
+
+    cursor: pointer;
+
+    transition:
+
+        transform 0.15s,
+
+        background-color 0.15s,
+
+        box-shadow 0.15s;
+
+}
+
+#boutonJouer {
+
+    margin-top: 140px;
+
+}
+
+#menu button + button {
+
+    margin-top: 22px;
+
+}
+
+#menu button:hover {
+
+    background-color: #63aa34;
+
+    transform: scale(1.06);
+
+}
+
+
+#menu button:active {
+
+    transform: translateY(5px);
+
+    box-shadow:
+
+        0 1px 0 #2d5717,
+
+        0 4px 8px rgba(0, 0, 0, 0.25);
+
+}
+
+#menu #boutonLore {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 190px;
+    margin: 0;
+    padding: 14px 20px;
+    font-size: 0;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(155, 48, 255, 0.25), transparent 65%),
+        linear-gradient(160deg, #2a1f38, #14101c);
+    background-clip: padding-box;
+    border: 2px solid #8a5a2f;
+    border-radius: 16px;
+    box-shadow:
+        0 0 0 1px rgba(216, 192, 122, 0.35),
+        0 6px 0 #0a070f,
+        0 10px 20px rgba(0, 0, 0, 0.5),
+        0 0 22px rgba(155, 48, 255, 0.35);
+    z-index: 2;
+    transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+}
+
+#menu #boutonLore::before {
+    content: "Lore";
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    background: linear-gradient(180deg, #f0d9a8 0%, #c9975a 45%, #8a5a2f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 14px rgba(255, 215, 130, 0.4);
+}
+
+#menu #boutonLore::before {
+    content: "Lore";
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    background: linear-gradient(180deg, #f0d9a8 0%, #c9975a 45%, #8a5a2f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 14px rgba(255, 215, 130, 0.4);
+}
+
+#menu #boutonLore::before {
+    content: "Lore";
+    background: linear-gradient(180deg, #f0d9a8 0%, #c9975a 45%, #8a5a2f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 14px rgba(255, 215, 130, 0.4);
+}
+
+#menu #boutonLore:hover {
+    filter: brightness(1.15);
+    transform: scale(1.06);
+    box-shadow:
+        0 0 0 1px rgba(216, 192, 122, 0.5),
+        0 6px 0 #0a070f,
+        0 10px 20px rgba(0, 0, 0, 0.5),
+        0 0 34px rgba(155, 48, 255, 0.55);
+}
+
+#menu #boutonLore:active {
+    transform: translateY(5px);
+    box-shadow:
+        0 0 0 1px rgba(216, 192, 122, 0.35),
+        0 1px 0 #0a070f;
+}
+
+/* JEU ET GAME OVER */
+
+#jeuContainer {
+
+    display: none;
+
+}
+
+
+#gameOver {
+
+    display: none;
+
+}
+
+/* FENÊTRE RÈGLES */
+
+#regles {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    justify-content: center;
+
+    align-items: center;
+
+   background-image: url("assets/Jardin2.png");
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+
+    z-index: 10;
+
+}
+
+
+/* CONTENU DES RÈGLES */
+#contenuRegles {
+    position: relative;
+    width: 700px;
+    max-width: 85vw;
+    max-height: 85vh;
+    overflow-y: auto;
+    margin-top: 40px;
+    padding: 70px 50px 45px 50px;
+    text-align: center;
+    color: #eafbd7;
+    background:
+        repeating-radial-gradient(circle at 20% 15%, rgba(255,255,255,0.05) 0px, transparent 3px, transparent 26px),
+        radial-gradient(circle at 25% 0%, rgba(255,255,255,0.16), transparent 55%),
+        linear-gradient(160deg, #4a8a2b 0%, #2d5717 60%, #1a3a0d 100%);
+    border: 5px solid #16300b;
+    border-radius: 26px;
+    box-shadow:
+        inset 0 0 0 3px rgba(216, 192, 122, 0.35),
+        inset 0 3px 10px rgba(255,255,255,0.12),
+        0 16px 0 #0f240a,
+        0 30px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* ==== Feuillage qui grimpe sur les coins ==== */
+#contenuRegles::before,
+#contenuPersonnaliser::before,
+#contenuPause::before {
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: -14px;
+    width: 90px;
+    height: 90px;
+    background:
+        radial-gradient(circle at 30% 30%, #8fae52 0 14px, transparent 15px),
+        radial-gradient(circle at 55% 55%, #6f9f3e 0 11px, transparent 12px),
+        radial-gradient(circle at 20% 60%, #5c8038 0 9px, transparent 10px);
+    filter: drop-shadow(2px 4px 3px rgba(0,0,0,0.4));
+    pointer-events: none;
+}
+
+#contenuRegles::after,
+#contenuPersonnaliser::after,
+#contenuPause::after {
+    content: "";
+    position: absolute;
+    bottom: -14px;
+    right: -14px;
+    width: 90px;
+    height: 90px;
+    background:
+        radial-gradient(circle at 70% 70%, #8fae52 0 14px, transparent 15px),
+        radial-gradient(circle at 45% 45%, #6f9f3e 0 11px, transparent 12px),
+        radial-gradient(circle at 80% 40%, #5c8038 0 9px, transparent 10px);
+    filter: drop-shadow(2px 4px 3px rgba(0,0,0,0.4));
+    pointer-events: none;
+}
+
+/* ==== Pancarte en bois suspendue par deux cordes ==== */
+#contenuRegles h2,
+#contenuPersonnaliser h2,
+#contenuPause h2 {
+    position: relative;
+    display: inline-block;
+    margin: -95px 0 32px 0;
+    padding: 16px 55px;
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: #fff6e0;
+    background:
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.08) 0 3px, transparent 3px 22px),
+        linear-gradient(180deg, #c9975a, #a9713f 45%, #8a5a2f 80%, #6b4423 100%);
+    border: 4px solid #4d2d16;
+    border-radius: 10px;
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.35),
+        inset 0 -4px 8px rgba(0,0,0,0.3),
+        0 8px 0 #3d2412,
+        0 14px 22px rgba(0,0,0,0.45);
+    text-shadow: 2px 2px 0 #4d2d16;
+}
+
+/* petites cordes qui relient la pancarte au cadre */
+#contenuRegles h2::before,
+#contenuPersonnaliser h2::before,
+#contenuPause h2::before {
+    content: "";
+    position: absolute;
+    top: -34px;
+    left: 18%;
+    width: 3px;
+    height: 34px;
+    background: #6b4423;
+    box-shadow: 0 0 0 1px #4d2d16;
+}
+
+#contenuRegles h2::after,
+#contenuPersonnaliser h2::after,
+#contenuPause h2::after {
+    content: "";
+    position: absolute;
+    top: -34px;
+    right: 18%;
+    width: 3px;
+    height: 34px;
+    background: #6b4423;
+    box-shadow: 0 0 0 1px #4d2d16;
+}
+
+.regle {
+    position: relative;
+    margin: 16px 0;
+    padding: 16px 22px 16px 30px;
+    text-align: left;
+    background: linear-gradient(160deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04));
+    border: 2px solid rgba(255,255,255,0.16);
+    border-radius: 4px 16px 16px 4px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.28);
+}
+
+.regle::before {
+    content: "🌿";
+    position: absolute;
+    left: -14px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-15deg);
+    font-size: 22px;
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.4));
+}
+
+.regle h3 {
+    margin: 0 0 6px 0;
+    font-size: 20px;
+    font-weight: 900;
+    color: #f4d03f;
+    text-shadow: 1px 1px 0 #4d2d16;
+}
+
+.regle p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #d9ecc3;
+}
+
+.carteFruit {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 14px 8px 10px 8px;
+    background: linear-gradient(160deg, rgba(255,255,255,0.14), rgba(255,255,255,0.03));
+    border: 2px solid rgba(216, 192, 122, 0.4);
+    border-radius: 16px;
+    box-shadow: inset 0 2px 6px rgba(255,255,255,0.1), 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.nomFruit {
+    font-weight: 900;
+    font-size: 16px;
+    color: #fff6e0;
+    margin-top: 4px;
+}
+
+.seuilFruit {
+    font-size: 13px;
+    color: #c3d4ab;
+    font-style: italic;
+}
+
+.pointsFruit {
+    font-size: 15px;
+    font-weight: 900;
+    color: #f4d03f;
+    margin-top: 2px;
+    text-shadow: 1px 1px 0 #4d2d16;
+}
+
+#boutonRetourRegles {
+    position: relative;
+    overflow: hidden;
+    margin-top: 22px;
+    padding: 16px 70px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.35), transparent 40%),
+        linear-gradient(180deg, #79c94a, #4f8f28 70%, #3d7020);
+    border: 4px solid #2d5717;
+    border-radius: 18px;
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.4),
+        0 7px 0 #1e3a10,
+        0 12px 18px rgba(0,0,0,0.35);
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+#boutonRetourRegles::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -60%;
+    width: 35%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+    transform: skewX(-20deg);
+}
+
+#boutonRetourRegles:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px) scale(1.05);
+}
+
+#boutonRetourRegles:active {
+    transform: translateY(5px);
+    box-shadow: inset 0 2px 3px rgba(255,255,255,0.3), 0 1px 0 #1e3a10;
+}
+
+#lore {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at 50% 20%, #2a1f38 0%, #14101c 55%, #0a070f 100%);
+    z-index: 10;
+}
+
+#contenuLore {
+    position: relative;
+    width: 720px;
+    max-width: 85vw;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 55px 55px 40px 55px;
+    text-align: center;
+    color: #e8d6a8;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(155, 48, 255, 0.12), transparent 60%),
+        linear-gradient(160deg, rgba(30, 20, 45, 0.96), rgba(15, 10, 22, 0.98));
+    border: 2px solid #6b4423;
+    border-radius: 20px;
+    box-shadow:
+        0 0 0 1px rgba(216, 192, 122, 0.25),
+        0 25px 60px rgba(0, 0, 0, 0.7),
+        0 0 90px rgba(155, 48, 255, 0.15) inset;
+}
+
+#croixLore {
+    position: absolute;
+    top: 20px;
+    right: 26px;
+    font-size: 30px;
+    opacity: 0.85;
+    text-shadow: 0 0 14px rgba(255, 215, 130, 0.6);
+}
+
+#contenuLore h2 {
+    margin: 0 0 30px 0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 46px;
+    letter-spacing: 6px;
+    background: linear-gradient(180deg, #f0d9a8 0%, #c9975a 45%, #8a5a2f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(255, 215, 130, 0.35);
+}
+
+#texteLore {
+    text-align: left;
+}
+
+.paragrapheLore {
+    margin: 0 0 18px 0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: #d9c6a0;
+}
+
+.lettrine::first-letter {
+    font-size: 52px;
+    font-weight: bold;
+    float: left;
+    line-height: 0.8;
+    margin: 6px 8px 0 0;
+    background: linear-gradient(180deg, #f0d9a8, #a9713f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.separateurLore {
+    text-align: center;
+    margin: 26px 0;
+    color: #9b30ff;
+    letter-spacing: 14px;
+    font-size: 14px;
+    opacity: 0.75;
+    text-shadow: 0 0 10px rgba(155, 48, 255, 0.6);
+}
+
+.citationLore {
+    font-style: italic;
+    color: #c9a8ea;
+    border-left: 3px solid #9b30ff;
+    padding-left: 18px;
+    margin-left: 4px;
+}
+
+.finaleLore {
+    margin-top: 26px;
+    font-style: italic;
+    font-weight: bold;
+    color: #f0d9a8;
+    text-shadow: 0 0 14px rgba(255, 215, 130, 0.35);
+}
+
+#boutonRetourLore {
+    margin-top: 15px;
+    padding: 15px 70px;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #14101c;
+    background: linear-gradient(180deg, #f0d9a8, #c9975a);
+    border: 2px solid #8a5a2f;
+    border-radius: 16px;
+    box-shadow: 0 6px 0 #6b4423;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+#boutonRetourLore:hover {
+    filter: brightness(1.08);
+    transform: scale(1.05);
+}
+
+#boutonRetourLore:active {
+    transform: translateY(5px);
+    box-shadow: 0 1px 0 #6b4423;
+}
+
+/* FENÊTRE PERSONNALISER */
+
+
+#personnaliser {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    background-image: url("assets/Jardin2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+/* ==== Feuillage décoratif sur l'écran (coins) ==== */
+#personnaliser::before {
+    content: "";
+    position: fixed;
+    top: 22px;
+    left: 22px;
+    width: 140px;
+    height: 140px;
+    background:
+        radial-gradient(circle at 30% 30%, #8fae52 0 22px, transparent 23px),
+        radial-gradient(circle at 58% 55%, #6f9f3e 0 17px, transparent 18px),
+        radial-gradient(circle at 18% 68%, #5c8038 0 14px, transparent 15px),
+        radial-gradient(circle at 72% 15%, #7fa348 0 12px, transparent 13px);
+    filter: drop-shadow(3px 6px 6px rgba(0,0,0,0.5));
+    pointer-events: none;
+    z-index: 11;
+}
+
+#personnaliser::after {
+    content: "";
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    width: 140px;
+    height: 140px;
+    background:
+        radial-gradient(circle at 70% 70%, #8fae52 0 22px, transparent 23px),
+        radial-gradient(circle at 42% 45%, #6f9f3e 0 17px, transparent 18px),
+        radial-gradient(circle at 82% 32%, #5c8038 0 14px, transparent 15px),
+        radial-gradient(circle at 28% 85%, #7fa348 0 12px, transparent 13px);
+    filter: drop-shadow(3px 6px 6px rgba(0,0,0,0.5));
+    pointer-events: none;
+    z-index: 11;
+}
+
+/* CONTENU */
+
+#contenuPersonnaliser {
+    position: relative;
+    z-index: 12;
+    width: 600px;
+    max-width: 85vw;
+    padding: 55px 50px 45px 50px;
+    text-align: center;
+    color: #eafbd7;
+    background:
+        radial-gradient(circle at 25% 0%, rgba(255,255,255,0.16), transparent 55%),
+        linear-gradient(160deg, #4a8a2b 0%, #2d5717 60%, #1a3a0d 100%);
+    border: 5px solid #16300b;
+    border-radius: 26px;
+    box-shadow:
+        inset 0 0 0 3px rgba(216, 192, 122, 0.35),
+        inset 0 3px 10px rgba(255,255,255,0.12),
+        0 16px 0 #0f240a,
+        0 30px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* TITRE en pancarte suspendue */
+#contenuPersonnaliser h2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: -85px auto 30px auto;
+    padding: 14px 45px;
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: #fff6e0;
+    background: linear-gradient(180deg, #c9975a, #a9713f 45%, #8a5a2f 80%, #6b4423 100%);
+    border: 4px solid #4d2d16;
+    border-radius: 10px;
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.35),
+        inset 0 -4px 8px rgba(0,0,0,0.3),
+        0 8px 0 #3d2412,
+        0 14px 22px rgba(0,0,0,0.45);
+    text-shadow: 2px 2px 0 #4d2d16;
+}
+
+#contenuPersonnaliser h2::before {
+    content: "🎨";
+    display: block;
+    margin-bottom: 6px;
+    font-size: 26px;
+}
+
+#contenuPersonnaliser p {
+    margin: 0 0 6px 0;
+    color: #d9ecc3;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* SÉLECTEUR DE COULEUR */
+
+#choixCouleur {
+    width: 110px;
+    height: 60px;
+    margin: 18px auto 8px auto;
+    display: block;
+    border: 4px solid #d8c07a;
+    border-radius: 14px;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: 0 5px 0 #6b4423, inset 0 0 0 2px rgba(0,0,0,0.15);
+    transition: transform 0.15s;
+}
+
+#choixCouleur:hover {
+    transform: scale(1.05);
+}
+
+/* APERÇU DU SERPENT dans un cadre "clairière" */
+
+#apercuSerpent {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin: 28px auto 20px auto;
+    padding: 26px 34px;
+    width: fit-content;
+    background:
+        radial-gradient(ellipse at center, rgba(255,255,255,0.06), transparent 70%),
+        linear-gradient(160deg, rgba(0,0,0,0.22), rgba(0,0,0,0.08));
+    border: 2px solid rgba(216, 192, 122, 0.45);
+    border-radius: 26px;
+    box-shadow: inset 0 3px 14px rgba(0,0,0,0.4);
+}
+
+#apercuSerpent::before {
+    content: "aperçu";
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 14px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #2d5717;
+    background: #d8c07a;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.morceauApercu {
+    width: 66px;
+    height: 66px;
+    background-color: #00a000;
+    border: 3px solid #1f5c25;
+    border-radius: 10px;
+    box-shadow: 0 5px 0 rgba(0,0,0,0.3), inset 0 2px 2px rgba(255,255,255,0.25);
+}
+
+.teteApercu {
+    width: 66px;
+    height: 66px;
+    background-color: #00a000;
+    border: 3px solid #1f5c25;
+    border-radius: 24px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 5px 0 rgba(0,0,0,0.3), inset 0 2px 2px rgba(255,255,255,0.25);
+}
+
+/* YEUX */
+
+.oeil {
+    width: 14px;
+    height: 18px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    position: relative;
+}
+
+.oeil::after {
+    content: "";
+    width: 6px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 3px;
+}
+
+/* SKIN DORÉ */
+
+#blocSkinDore {
+    margin: 15px 0 25px 0;
+}
+
+#labelSkinDore {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff6e0;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(216, 192, 122, 0.3);
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+#caseSkinDore {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #d8a900;
+}
+
+/* BOUTON RETOUR */
+
+#boutonRetourPersonnaliser {
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    padding: 16px 70px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.35), transparent 40%),
+        linear-gradient(180deg, #79c94a, #4f8f28 70%, #3d7020);
+    border: 4px solid #2d5717;
+    border-radius: 18px;
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.4),
+        0 7px 0 #1e3a10,
+        0 12px 18px rgba(0,0,0,0.35);
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+#boutonRetourPersonnaliser::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -60%;
+    width: 35%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+    transform: skewX(-20deg);
+}
+
+#boutonRetourPersonnaliser:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px) scale(1.05);
+}
+
+#boutonRetourPersonnaliser:active {
+    transform: translateY(5px);
+    box-shadow: inset 0 2px 3px rgba(255,255,255,0.3), 0 1px 0 #1e3a10;
+}
+
+#jeu {
+
+    background: transparent;
+
+}
+
+#jeuContainer {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+   z-index: 5;
+
+    width: 100vw;
+    height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("assets/Jardin2.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+}
+
+#jeuContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(90, 20, 130, 0.35);
+    z-index: 0;
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+#jeuContainer.murActif::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100vh;
+    transform: translateX(-50%);
+    background: rgba(155, 48, 255, 0.85);
+    z-index: 7;
+    pointer-events: none;
+}
+
+#jeuContainer.murActif::before {
+    opacity: 1;
+}
+
+#gameOver {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at 50% 45%, rgba(120, 30, 20, 0.18), transparent 60%),
+        rgba(8, 10, 6, 0.75);
+    backdrop-filter: blur(5px);
+    z-index: 20;
+}
+
+#contenuGameOver {
+    position: relative;
+    width: 480px;
+    max-width: 85vw;
+    padding: 60px 40px 40px 40px;
+    text-align: center;
+    color: #f3e6d3;
+    background:
+        repeating-linear-gradient(
+            180deg,
+            rgba(0,0,0,0.08) 0px,
+            transparent 2px,
+            transparent 7px,
+            rgba(0,0,0,0.06) 9px,
+            transparent 14px,
+            rgba(255,255,255,0.03) 16px,
+            transparent 22px
+        ),
+        repeating-linear-gradient(
+            180deg,
+            rgba(60, 30, 15, 0.4) 0px,
+            rgba(90, 50, 25, 0.3) 40px,
+            rgba(50, 25, 12, 0.4) 80px
+        ),
+        radial-gradient(circle at 25% 0%, rgba(255,220,180,0.08), transparent 55%),
+        linear-gradient(160deg, #6b4423 0%, #4a2f18 55%, #2e1c0e 100%);
+    border: 6px solid #2a1810;
+    border-radius: 14px;
+    box-shadow:
+        inset 0 0 0 3px rgba(200, 150, 100, 0.25),
+        inset 0 3px 10px rgba(255,220,180,0.1),
+        inset 0 -3px 10px rgba(0,0,0,0.4),
+        0 16px 0 #1a0f08,
+        0 30px 50px rgba(0, 0, 0, 0.55);
+}
+
+#contenuGameOver h2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: -25px auto 26px auto;
+    padding: 14px 42px;
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: #fff6e0;
+    background: linear-gradient(180deg, #a9503f, #7a3527 45%, #5c281c 80%, #3d1a12 100%);
+    border: 4px solid #2e130c;
+    border-radius: 10px;
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.25),
+        inset 0 -4px 8px rgba(0,0,0,0.3),
+        0 0 20px rgba(200, 60, 30, 0.35),
+        0 8px 0 #24100b,
+        0 14px 22px rgba(0,0,0,0.45);
+    text-shadow: 2px 2px 0 #2e130c;
+}
+
+#contenuGameOver h2::before {
+    content: "☠";
+    display: block;
+    margin-bottom: 6px;
+    font-size: 22px;
+    color: #f4d03f;
+    text-shadow: 0 0 10px rgba(244, 208, 63, 0.6);
+}
+
+/* ==== Texte de la cause de mort, en vraie citation ==== */
+#causeMort {
+    position: relative;
+    margin: 0 0 24px 0;
+    padding: 14px 24px;
+    font-size: 16px;
+    line-height: 1.5;
+    font-style: italic;
+    color: #d9ecc3;
+    background: rgba(0, 0, 0, 0.2);
+    border-left: 3px solid #d8562f;
+    border-radius: 4px 12px 12px 4px;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.25);
+}
+
+#causeMort::before {
+    content: "\201C";
+    position: absolute;
+    top: -6px;
+    left: 10px;
+    font-family: Georgia, serif;
+    font-size: 34px;
+    font-style: normal;
+    color: #d8562f;
+    opacity: 0.7;
+}
+
+#scoreFinal {
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff6e0;
+    margin-bottom: 6px;
+}
+
+#tempsFinal {
+    font-size: 19px;
+    color: #c3d4ab;
+    margin-bottom: 24px;
+    font-variant-numeric: tabular-nums;
+}
+
+#contenuGameOver button {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 8px 0;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border-radius: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.15s, filter 0.15s;
+}
+
+#boutonRejouer {
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.35), transparent 40%),
+        linear-gradient(180deg, #79c94a, #4f8f28 70%, #3d7020);
+    border: 4px solid #2d5717;
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.4),
+        0 7px 0 #1e3a10,
+        0 12px 18px rgba(0,0,0,0.35);
+}
+
+#boutonMenu {
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.2), transparent 40%),
+        linear-gradient(180deg, #a56a3a, #8b5a2b 70%, #6b4423);
+    border: 4px solid #5c3a1a;
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.25),
+        0 7px 0 #3d2712,
+        0 12px 18px rgba(0,0,0,0.35);
+}
+
+#contenuGameOver button::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -60%;
+    width: 35%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent);
+    transform: skewX(-20deg);
+}
+
+#contenuGameOver button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+#contenuGameOver button:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.4) !important;
+}
+
+#score {
+
+    position: fixed;
+
+    top: 20px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 35px;
+
+    font-weight: bold;
+
+    color: white;
+
+    text-shadow:
+    3px 3px 5px black;
+
+    z-index: 15;
+
+}
+
+#pause {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    background: rgba(15, 20, 8, 0.65);
+    backdrop-filter: blur(5px);
+    z-index: 25;
+    animation: fondu 0.2s ease;
+}
+
+/* ==== Feuillage décoratif sur l'écran (coins), pas sur le panneau ==== */
+#pause::before {
+    content: "";
+    position: fixed;
+    top: 22px;
+    left: 22px;
+    width: 140px;
+    height: 140px;
+    background:
+        radial-gradient(circle at 30% 30%, #8fae52 0 22px, transparent 23px),
+        radial-gradient(circle at 58% 55%, #6f9f3e 0 17px, transparent 18px),
+        radial-gradient(circle at 18% 68%, #5c8038 0 14px, transparent 15px),
+        radial-gradient(circle at 72% 15%, #7fa348 0 12px, transparent 13px);
+    filter: drop-shadow(3px 6px 6px rgba(0,0,0,0.5));
+    pointer-events: none;
+    z-index: 26;
+}
+
+#pause::after {
+    content: "";
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    width: 140px;
+    height: 140px;
+    background:
+        radial-gradient(circle at 70% 70%, #8fae52 0 22px, transparent 23px),
+        radial-gradient(circle at 42% 45%, #6f9f3e 0 17px, transparent 18px),
+        radial-gradient(circle at 82% 32%, #5c8038 0 14px, transparent 15px),
+        radial-gradient(circle at 28% 85%, #7fa348 0 12px, transparent 13px);
+    filter: drop-shadow(3px 6px 6px rgba(0,0,0,0.5));
+    pointer-events: none;
+    z-index: 26;
+}
+
+@keyframes fondu {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes apparitionPause {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+#contenuPause {
+    position: relative;
+    z-index: 27;
+    width: 400px;
+    max-width: 85vw;
+    padding: 55px 35px 40px 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #eafbd7;
+    background:
+        radial-gradient(circle at 25% 0%, rgba(255,255,255,0.16), transparent 55%),
+        linear-gradient(160deg, #4a8a2b 0%, #2d5717 60%, #1a3a0d 100%);
+    border: 5px solid #16300b;
+    border-radius: 26px;
+    box-shadow:
+        inset 0 0 0 3px rgba(216, 192, 122, 0.35),
+        inset 0 3px 10px rgba(255,255,255,0.12),
+        0 16px 0 #0f240a,
+        0 30px 50px rgba(0, 0, 0, 0.5);
+    animation: apparitionPause 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-sizing: border-box;
+}
+
+#contenuPause h2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: -20px auto 30px auto;
+    padding: 14px 50px;
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #fff6e0;
+    background: linear-gradient(180deg, #c9975a, #a9713f 45%, #8a5a2f 80%, #6b4423 100%);
+    border: 4px solid #4d2d16;
+    border-radius: 10px;
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.35),
+        inset 0 -4px 8px rgba(0,0,0,0.3),
+        0 8px 0 #3d2412,
+        0 14px 22px rgba(0,0,0,0.45);
+    text-shadow: 2px 2px 0 #4d2d16;
+}
+
+#contenuPause h2::before {
+    content: "⏸" !important;
+    position: static !important;
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    margin: 0 0 8px 0 !important;
+    font-size: 30px !important;
+    text-align: center;
+    background: none !important;
+    box-shadow: none !important;
+    color: #f4d03f !important;
+    -webkit-text-fill-color: #f4d03f !important;
+    text-shadow: 0 0 10px rgba(244, 208, 63, 0.6), 1px 1px 0 #4d2d16 !important;
+}
+
+#contenuPause h2::after {
+    content: none !important;
+}
+
+/* ==== Boutons : base d'origine, inchangée ==== */
+#contenuPause button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 8px 0;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.15s, filter 0.15s;
+}
+
+#boutonReprendre {
+    background: linear-gradient(180deg, #63aa34, #4f8f28);
+    box-shadow: 0 6px 0 #2d5717;
+}
+
+#boutonRecommencerPause {
+    background: linear-gradient(180deg, #4a90d9, #2f6cb3);
+    box-shadow: 0 6px 0 #1c4570;
+}
+
+#boutonMenuPause {
+    background: linear-gradient(180deg, #a56a3a, #8b5a2b);
+    box-shadow: 0 6px 0 #5c3a1a;
+}
+
+#contenuPause button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+#contenuPause button:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.4) !important;
+}
+
+#chrono {
+    position: fixed;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #f4d03f;
+    text-shadow: 2px 2px 4px black;
+    z-index: 15;
+    font-variant-numeric: tabular-nums;
+}
+
+#tempsFinal {
+    font-size: 19px;
+    color: #b8a390;
+    margin-bottom: 24px;
+    font-variant-numeric: tabular-nums;
+}
+
+
+#titreConteneur {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 640px;
+
+    max-width: 90vw;
+
+    height: 170px;
+
+}
+
+#cadreLianes {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    pointer-events: none;
+
+    filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.35));
+
+    transform: translateY(-15px);
+
+}
+
+.feuilleSvg {
+
+    transform-origin: 0px 0px;
+
+    animation: balancementFeuille 3.5s ease-in-out infinite;
+
+}
+
+@keyframes balancementFeuille {
+
+    0%, 100% {
+
+        transform: rotate(0deg) scale(1);
+
+    }
+
+    50% {
+
+        transform: rotate(8deg) scale(1.06);
+
+    }
+
+}
+
+#menu h1 {
+
+    position: relative;
+
+    margin: -10px 0 35px 0;
+
+    font-size: 58px;
+
+    font-family: 'Georgia', 'Times New Roman', serif;
+
+    letter-spacing: 3px;
+
+    background: linear-gradient(180deg,
+
+        #e8c28a 0%,
+
+        #c9975a 25%,
+
+        #a9713f 55%,
+
+        #8a5a2f 80%,
+
+        #6b4423 100%
+
+    );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    -webkit-text-stroke: 2px #4d2d16;
+
+    text-shadow:
+
+        2px 2px 0 #4d2d16,
+
+        4px 4px 0 #3d2412,
+
+        6px 6px 10px rgba(0, 0, 0, 0.45),
+
+        0 0 30px rgba(232, 194, 138, 0.5);
+
+    animation: respirationTitre 3s ease-in-out infinite;
+
+}
+
+@keyframes respirationTitre {
+
+    0%, 100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.02);
+
+    }
+
+}
+
+#boutonJouer {
+
+    margin-top: 140px;
+
+}
+
+#menu button + button {
+
+    margin-top: 22px;
+
+}
+
+#messageArene {
+
+    display: none;
+
+    position: fixed;
+
+    top: 20px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 26px;
+
+    font-family: 'Georgia', 'Times New Roman', serif;
+
+    font-style: italic;
+
+    font-weight: bold;
+
+    letter-spacing: 0.5px;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    color: #d9b3ff;
+
+    text-shadow:
+        2px 2px 4px black,
+        0 0 12px rgba(155, 48, 255, 0.7);
+
+    z-index: 15;
+
+}
+
+#murGaucheEcran {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    background: rgba(90, 20, 130, 0.35);
+    z-index: 6;
+    pointer-events: none;
+}
+
+/* ================= FLASH DE FUSION ================= */
+
+#flashFusion {
+    position: fixed;
+    inset: 0;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+    transition: opacity 0.6s ease;
+}
+
+/* ================= ÉCRAN FINAL DORÉ ================= */
+
+#finFusion {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #eaf6ff 0%, #ffffff 55%, #fff9ec 100%);
+}
+
+.nuage {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    box-shadow:
+        40px 10px 0 -5px white,
+        -40px 10px 0 -8px white,
+        20px -15px 0 -10px white,
+        -20px -10px 0 -12px white;
+    opacity: 0.85;
+    filter: blur(1px);
+    animation: deriveNuage linear infinite;
+}
+
+.nuage1 { width: 140px; height: 55px; top: 12%; left: -20%; animation-duration: 42s; }
+.nuage2 { width: 100px; height: 40px; top: 25%; left: -30%; animation-duration: 55s; animation-delay: -10s; }
+.nuage3 { width: 170px; height: 65px; top: 68%; left: -25%; animation-duration: 60s; animation-delay: -25s; }
+.nuage4 { width: 90px;  height: 35px; top: 80%; left: -15%; animation-duration: 38s; animation-delay: -5s; }
+.nuage5 { width: 120px; height: 45px; top: 45%; left: -35%; animation-duration: 50s; animation-delay: -18s; }
+
+@keyframes deriveNuage {
+    from { transform: translateX(0); }
+    to   { transform: translateX(160vw); }
+}
+
+#texteFusion {
+    position: relative;
+    z-index: 2;
+    max-width: 80%;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 34px;
+    line-height: 1.5;
+    color: #a3714a;
+    text-shadow: 0 0 20px rgba(255, 215, 130, 0.8);
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 1.8s ease, transform 1.8s ease;
+}
+
+#texteFusion.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#conteneurSerpentDore {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+#conteneurSerpentDore.visible {
+    opacity: 1;
+}
+
+#canvasSerpentDore {
+    display: block;
+}
+
+#canvasFumee {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+#canvasSerpentDore.visible {
+    opacity: 1;
+}
+
+#boutonMenuFusion {
+    position: relative;
+    z-index: 2;
+    margin-top: 45px;
+    padding: 16px 60px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(180deg, #e0a900, #a9713f);
+    border: 5px solid #d8c07a;
+    border-radius: 18px;
+    box-shadow: 0 6px 0 #6b4423;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 1.8s ease, transform 0.15s, box-shadow 0.15s;
+}
+
+#boutonMenuFusion.visible {
+    opacity: 1;
+}
+
+#boutonMenuFusion:hover {
+    transform: scale(1.06);
+}
+
+#boutonMenuFusion:active {
+    transform: translateY(5px);
+    box-shadow: 0 1px 0 #6b4423;
+}
+
+#texteFusionIntro {
+    position: relative;
+    z-index: 2;
+    max-width: 80%;
+    margin-bottom: 22px;
+    text-align: center;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 27px;
+    letter-spacing: 1px;
+   color: #a3714a;
+   text-shadow: 0 0 18px rgba(255, 215, 130, 0.6);
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 1.4s ease, transform 1.4s ease;
+}
+
+#texteFusionIntro.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#texteFusionIntro::before,
+#texteFusionIntro::after {
+    content: "✦";
+    display: inline-block;
+    margin: 0 14px;
+    font-style: normal;
+    color: #d8c07a;
+    font-size: 17px;
+    vertical-align: middle;
+    text-shadow: 0 0 8px rgba(255, 215, 130, 0.8);
+}
+
+#blocSkinDore {
+    margin: 15px 0;
+}
+
+#labelSkinDore {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #6b4423;
+    cursor: pointer;
+}
+
+#caseSkinDore {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #d8a900;
+}
+
+#jeuContainer.foretActive {
+   background-image: url("assets/foret.png");
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+
+}
+
+
+
+#modalPseudo,
+#classement {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    background: rgba(15, 20, 8, 0.65);
+    backdrop-filter: blur(5px);
+    z-index: 25;
+}
+
+#contenuModalPseudo,
+#contenuClassement {
+    width: 420px;
+    max-width: 85vw;
+    padding: 40px 35px;
+    text-align: center;
+    color: #eafbd7;
+    background:
+        radial-gradient(circle at 25% 0%, rgba(255,255,255,0.16), transparent 55%),
+        linear-gradient(160deg, #4a8a2b 0%, #2d5717 60%, #1a3a0d 100%);
+    border: 5px solid #16300b;
+    border-radius: 26px;
+    box-shadow:
+        inset 0 0 0 3px rgba(216, 192, 122, 0.35),
+        0 16px 0 #0f240a,
+        0 30px 50px rgba(0, 0, 0, 0.5);
+}
+
+#champPseudo {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 18px 0;
+    padding: 14px;
+    font-size: 18px;
+    text-align: center;
+    border: 3px solid #d8c07a;
+    border-radius: 12px;
+}
+
+#boutonValiderPseudo,
+#boutonRetourClassement {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(180deg, #79c94a, #4f8f28 70%, #3d7020);
+    border: 4px solid #2d5717;
+    border-radius: 16px;
+    box-shadow: 0 6px 0 #1e3a10;
+    cursor: pointer;
+}
+
+#listeClassement {
+    text-align: left;
+    padding-left: 26px;
+    margin: 20px 0;
+    font-size: 18px;
+    line-height: 2;
+}
