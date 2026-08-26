@@ -1755,10 +1755,11 @@ body {
     z-index: 25;
 }
 
-#contenuModalPseudo,
 #contenuClassement {
-    width: 420px;
-    max-width: 85vw;
+    width: 560px;
+    max-width: 90vw;
+    max-height: 85vh;
+    overflow-y: auto;
     padding: 40px 35px;
     text-align: center;
     color: #eafbd7;
@@ -1773,22 +1774,100 @@ body {
         0 30px 50px rgba(0, 0, 0, 0.5);
 }
 
-#champPseudo {
-    width: 100%;
-    box-sizing: border-box;
-    margin: 18px 0;
-    padding: 14px;
-    font-size: 18px;
-    text-align: center;
-    border: 3px solid #d8c07a;
-    border-radius: 12px;
+#podiumClassement {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 14px;
+    margin: 25px 0 30px 0;
 }
 
-#boutonValiderPseudo,
+.cartePodium {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px 8px 14px 8px;
+    border-radius: 16px;
+    background: linear-gradient(160deg, rgba(255,255,255,0.14), rgba(255,255,255,0.03));
+    border: 2px solid rgba(216, 192, 122, 0.35);
+    box-shadow: inset 0 2px 6px rgba(255,255,255,0.1), 0 6px 14px rgba(0,0,0,0.3);
+}
+
+.cartePodium.position1 {
+    order: 2;
+    padding-top: 26px;
+    padding-bottom: 22px;
+    border-color: #f4d03f;
+    background: linear-gradient(160deg, rgba(244,208,63,0.22), rgba(255,255,255,0.03));
+    box-shadow:
+        inset 0 2px 6px rgba(255,255,255,0.15),
+        0 0 24px rgba(244, 208, 63, 0.35),
+        0 8px 16px rgba(0,0,0,0.35);
+}
+
+.cartePodium.position2 { order: 1; border-color: #c7d0da; }
+.cartePodium.position3 { order: 3; border-color: #cd8a4a; }
+
+.cartePodiumVide { opacity: 0.3; }
+
+.medaillePodium {
+    font-size: 30px;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 3px 4px rgba(0,0,0,0.4));
+}
+
+.position1 .medaillePodium { font-size: 40px; }
+
+.pseudoPodium {
+    font-weight: 900;
+    font-size: 15px;
+    color: #fff6e0;
+    text-align: center;
+    word-break: break-word;
+    margin-bottom: 4px;
+}
+
+.position1 .pseudoPodium { font-size: 18px; }
+
+.tempsPodium {
+    font-size: 14px;
+    font-weight: bold;
+    color: #f4d03f;
+    font-variant-numeric: tabular-nums;
+}
+
+#listeClassement {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+#listeClassement li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.rangListe { width: 22px; font-weight: 900; color: #d8c07a; }
+.pseudoListe { flex: 1; text-align: left; color: #eafbd7; }
+.tempsListe { font-weight: bold; color: #f4d03f; font-variant-numeric: tabular-nums; }
+
+.chargementClassement { color: #d9ecc3; font-style: italic; }
+
 #boutonRetourClassement {
     width: 100%;
     box-sizing: border-box;
-    margin-top: 10px;
+    margin-top: 20px;
     padding: 16px;
     font-size: 20px;
     font-weight: bold;
@@ -1798,12 +1877,4 @@ body {
     border-radius: 16px;
     box-shadow: 0 6px 0 #1e3a10;
     cursor: pointer;
-}
-
-#listeClassement {
-    text-align: left;
-    padding-left: 26px;
-    margin: 20px 0;
-    font-size: 18px;
-    line-height: 2;
 }
