@@ -1,3 +1,23 @@
+
+let sessionActuelleId = null;
+let sessionActuelleRef = null;
+
+function demarrerSessionServeur() {
+
+    if (!db) return;
+
+    db.collection("sessions").add({
+        debut: firebase.firestore.FieldValue.serverTimestamp(),
+        termine: false
+    }).then(function (ref) {
+        sessionActuelleId = ref.id;
+        sessionActuelleRef = ref;
+    }).catch(function (erreur) {
+        console.error("Erreur création session :", erreur);
+    });
+
+}
+
 // =========================
 // FIREBASE (classement en ligne)
 // =========================
@@ -133,29 +153,34 @@ function enregistrerVictoire(tempsFinal) {
 
 function envoyerScoreEnLigne(pseudo, tempsFinal) {
 
-    if (!db) return;
+    if (!db || !sessionActuelleRef) return;
 
     let idJoueur = recupererIdJoueur();
-    let ref = db.collection("classement").doc(idJoueur);
 
-    ref.get().then(function (doc) {
+    sessionActuelleRef.update({
+        termine: true,
+        temps: tempsFinal
+    }).then(function () {
 
-        let estMeilleurQueLExistant = !doc.exists || tempsFinal < doc.data().temps;
+        let refClassement = db.collection("classement").doc(idJoueur);
 
-        if (!estMeilleurQueLExistant) {
-            return;
-        }
+        return refClassement.get().then(function (doc) {
 
-        ref.set({
-            pseudo: pseudo,
-            temps: tempsFinal,
-            date: firebase.firestore.FieldValue.serverTimestamp()
-        }).catch(function (erreur) {
-            console.error("Erreur lors de l'envoi du score :", erreur);
+            let estMeilleur = !doc.exists || tempsFinal < doc.data().temps;
+
+            if (!estMeilleur) return;
+
+            return refClassement.set({
+                pseudo: pseudo,
+                temps: tempsFinal,
+                sessionRef: sessionActuelleId,
+                date: firebase.firestore.FieldValue.serverTimestamp()
+            });
+
         });
 
     }).catch(function (erreur) {
-        console.error("Erreur lors de la lecture du score existant :", erreur);
+        console.error("Erreur envoi score :", erreur);
     });
 
 }
@@ -2109,6 +2134,7 @@ function recommencerJeu(demarrer) {
  gameOver.style.display = "none";
 
  debutChrono = Date.now();
+ demarrerSessionServeur();
  tempsPauseAccumule = 0;
  chronoActif = demarrer;
 
