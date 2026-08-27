@@ -2435,3 +2435,48 @@ body {
 #contenuClassement::-webkit-scrollbar-thumb:hover {
     background: rgba(244, 208, 63, 0.45);
 }
+
+
+/* ===== Scrollbar discrète — Règles (vert/doré) ===== */
+#contenuRegles {
+    overflow-x: hidden;
+}
+
+#contenuRegles::-webkit-scrollbar {
+    width: 8px;
+}
+
+#contenuRegles::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#contenuRegles::-webkit-scrollbar-thumb {
+    background: rgba(216, 192, 122, 0.3);
+    border-radius: 10px;
+}
+
+#contenuRegles::-webkit-scrollbar-thumb:hover {
+    background: rgba(216, 192, 122, 0.5);
+}
+
+/* ===== Scrollbar discrète — Lore (violet/doré) ===== */
+#contenuLore {
+    overflow-x: hidden;
+}
+
+#contenuLore::-webkit-scrollbar {
+    width: 8px;
+}
+
+#contenuLore::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#contenuLore::-webkit-scrollbar-thumb {
+    background: rgba(155, 48, 255, 0.3);
+    border-radius: 10px;
+}
+
+#contenuLore::-webkit-scrollbar-thumb:hover {
+    background: rgba(155, 48, 255, 0.5);
+}
