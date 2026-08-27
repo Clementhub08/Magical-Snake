@@ -20,6 +20,7 @@ try {
     console.error("Firebase non initialisé :", erreur);
 }
 
+
 const CLE_PSEUDO = "magicalSnakePseudo";
 
 function recupererPseudo() {
