@@ -1403,6 +1403,197 @@ body {
     box-shadow: 0 1px 0 rgba(0,0,0,0.4) !important;
 }
 
+
+/* ================= MODAL PSEUDO (stylée) ================= */
+
+#modalPseudo {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    background: rgba(15, 20, 8, 0.65);
+    backdrop-filter: blur(5px);
+    z-index: 25;
+    animation: fondu 0.2s ease;
+}
+
+#modalPseudo::before {
+    content: "";
+    position: fixed;
+    top: 22px;
+    left: 22px;
+    width: 140px;
+    height: 140px;
+    background:
+        radial-gradient(circle at 30% 30%, #8fae52 0 22px, transparent 23px),
+        radial-gradient(circle at 58% 55%, #6f9f3e 0 17px, transparent 18px),
+        radial-gradient(circle at 18% 68%, #5c8038 0 14px, transparent 15px),
+        radial-gradient(circle at 72% 15%, #7fa348 0 12px, transparent 13px);
+    filter: drop-shadow(3px 6px 6px rgba(0,0,0,0.5));
+    pointer-events: none;
+    z-index: 26;
+}
+
+#modalPseudo::after {
+    content: "";
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    width: 140px;
+    height: 140px;
+    background:
+        radial-gradient(circle at 70% 70%, #8fae52 0 22px, transparent 23px),
+        radial-gradient(circle at 42% 45%, #6f9f3e 0 17px, transparent 18px),
+        radial-gradient(circle at 82% 32%, #5c8038 0 14px, transparent 15px),
+        radial-gradient(circle at 28% 85%, #7fa348 0 12px, transparent 13px);
+    filter: drop-shadow(3px 6px 6px rgba(0,0,0,0.5));
+    pointer-events: none;
+    z-index: 26;
+}
+
+#contenuModalPseudo {
+    position: relative;
+    z-index: 27;
+    width: 420px;
+    max-width: 85vw;
+    padding: 55px 35px 40px 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #eafbd7;
+    background:
+        radial-gradient(circle at 25% 0%, rgba(255,255,255,0.16), transparent 55%),
+        linear-gradient(160deg, #4a8a2b 0%, #2d5717 60%, #1a3a0d 100%);
+    border: 5px solid #16300b;
+    border-radius: 26px;
+    box-shadow:
+        inset 0 0 0 3px rgba(216, 192, 122, 0.35),
+        inset 0 3px 10px rgba(255,255,255,0.12),
+        0 16px 0 #0f240a,
+        0 30px 50px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    animation: apparitionPause 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#contenuModalPseudo h2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: -20px auto 26px auto;
+    padding: 14px 45px;
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: #fff6e0;
+    background: linear-gradient(180deg, #c9975a, #a9713f 45%, #8a5a2f 80%, #6b4423 100%);
+    border: 4px solid #4d2d16;
+    border-radius: 10px;
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.35),
+        inset 0 -4px 8px rgba(0,0,0,0.3),
+        0 8px 0 #3d2412,
+        0 14px 22px rgba(0,0,0,0.45);
+    text-shadow: 2px 2px 0 #4d2d16;
+}
+
+#contenuModalPseudo h2::before {
+    content: "✏️";
+    display: block;
+    margin-bottom: 6px;
+    font-size: 24px;
+}
+
+#contenuModalPseudo p {
+    margin: 0 0 18px 0;
+    color: #d9ecc3;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#champPseudo {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 18px;
+    padding: 14px 16px;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    color: #2d5717;
+    background: #f3ecd8;
+    border: 3px solid #d8c07a;
+    border-radius: 14px;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.2), 0 4px 0 #6b4423;
+    outline: none;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+#champPseudo:focus {
+    transform: scale(1.02);
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.2), 0 4px 0 #6b4423, 0 0 0 3px rgba(244, 208, 63, 0.5);
+}
+
+#boutonValiderPseudo {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.35), transparent 40%),
+        linear-gradient(180deg, #79c94a, #4f8f28 70%, #3d7020);
+    border: 4px solid #2d5717;
+    border-radius: 16px;
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.4),
+        0 6px 0 #1e3a10,
+        0 10px 16px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+#boutonValiderPseudo:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+#boutonValiderPseudo:active {
+    transform: translateY(4px);
+    box-shadow: inset 0 2px 3px rgba(255,255,255,0.3), 0 1px 0 #1e3a10;
+}
+
+#boutonAnnulerPseudo {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #eafbd7;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.22);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+#boutonAnnulerPseudo:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-1px);
+}
+
+#boutonAnnulerPseudo:active {
+    transform: translateY(2px);
+}
+
 #chrono {
     position: fixed;
     top: 65px;
@@ -1836,67 +2027,153 @@ body {
     z-index: 25;
 }
 
+/* ================================================
+   CLASSEMENT — THÈME "GLOIRE ET RICHESSE"
+   ================================================ */
+
 #classement {
     display: none;
     position: fixed;
     inset: 0;
     justify-content: center;
     align-items: center;
-    background:
-        radial-gradient(circle at 50% 10%, rgba(244, 208, 63, 0.12), transparent 60%),
-        rgba(6, 10, 4, 0.82);
-    backdrop-filter: blur(6px);
+    background-image:
+        radial-gradient(circle at 50% 30%, rgba(244, 208, 63, 0.12), transparent 60%),
+        linear-gradient(rgba(5, 4, 2, 0.72), rgba(5, 4, 2, 0.82)),
+        url("assets/fond.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     z-index: 25;
+    overflow: hidden;
 }
 
+/* Rayons de lumière dorés qui rayonnent depuis le centre */
+#rayonsClassement {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1600px;
+    height: 1600px;
+    transform: translate(-50%, -50%);
+    background: repeating-conic-gradient(
+        rgba(244, 208, 63, 0.05) 0deg,
+        rgba(244, 208, 63, 0.05) 4deg,
+        transparent 4deg,
+        transparent 12deg
+    );
+    animation: rotationRayons 90s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes rotationRayons {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Particules dorées flottantes */
+#particulesOr {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image:
+        radial-gradient(circle, rgba(244,208,63,0.9) 0 2px, transparent 3px),
+        radial-gradient(circle, rgba(244,208,63,0.7) 0 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(244,208,63,0.8) 0 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(244,208,63,0.6) 0 1px, transparent 2px);
+    background-position: 10% 20%, 85% 15%, 25% 80%, 70% 65%;
+    background-repeat: no-repeat;
+    animation: flottementOr 6s ease-in-out infinite;
+}
+
+@keyframes flottementOr {
+    0%, 100% { transform: translateY(0); opacity: 0.7; }
+    50%      { transform: translateY(-18px); opacity: 1; }
+}
+
+/* Panneau principal — marbre sombre veiné d'or */
 #contenuClassement {
     position: relative;
-    width: 600px;
+    z-index: 2;
+    width: 640px;
     max-width: 92vw;
     max-height: 88vh;
     overflow-y: auto;
-    padding: 50px 38px 38px 38px;
+    padding: 55px 42px 42px 42px;
     text-align: center;
-    color: #eafbd7;
+    color: #f3e9d2;
     background:
-        radial-gradient(circle at 50% 0%, rgba(244, 208, 63, 0.1), transparent 55%),
-        linear-gradient(160deg, #1f3a10 0%, #142707 55%, #0c1a04 100%);
-    border: 2px solid rgba(244, 208, 63, 0.35);
-    border-radius: 28px;
+        repeating-linear-gradient(115deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 40px),
+        radial-gradient(circle at 30% 0%, rgba(244, 208, 63, 0.1), transparent 55%),
+        linear-gradient(160deg, #1c1a24 0%, #100e16 55%, #08070c 100%);
+    border: 2px solid rgba(244, 208, 63, 0.55);
+    border-radius: 22px;
     box-shadow:
-        0 0 0 1px rgba(216, 192, 122, 0.2),
-        0 25px 60px rgba(0, 0, 0, 0.6),
-        0 0 90px rgba(244, 208, 63, 0.08) inset;
-    animation: apparitionPause 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        0 0 0 1px rgba(0,0,0,0.6),
+        0 0 50px rgba(244, 208, 63, 0.18),
+        0 30px 70px rgba(0, 0, 0, 0.75),
+        inset 0 0 90px rgba(244, 208, 63, 0.05);
 }
+
+/* Petits ornements dorés aux coins */
+#contenuClassement::before,
+#contenuClassement::after {
+    content: "❖";
+    position: absolute;
+    font-size: 22px;
+    color: rgba(244, 208, 63, 0.55);
+    text-shadow: 0 0 10px rgba(244, 208, 63, 0.6);
+}
+#contenuClassement::before { top: 14px; left: 18px; }
+#contenuClassement::after  { top: 14px; right: 18px; }
 
 #contenuClassement h2 {
     position: relative;
-    margin: 0 0 8px 0;
+    margin: 0 0 10px 0;
     font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 38px;
-    letter-spacing: 4px;
-    background: linear-gradient(180deg, #fff3d1 0%, #f4d03f 40%, #c9975a 80%, #8a5a2f 100%);
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    background: linear-gradient(180deg, #fff8e0 0%, #f4d03f 35%, #d8a900 65%, #8a6a1f 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 0 40px rgba(244, 208, 63, 0.35);
+    text-shadow: 0 0 45px rgba(244, 208, 63, 0.45);
 }
 
 #contenuClassement h2::before {
     content: "🏆";
     display: block;
-    font-size: 34px;
-    margin-bottom: 4px;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+    font-size: 46px;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 0 18px rgba(244, 208, 63, 0.7)) drop-shadow(0 6px 8px rgba(0,0,0,0.5));
+    animation: pulseTrophee 2.6s ease-in-out infinite;
 }
+
+@keyframes pulseTrophee {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.08); }
+}
+
+#contenuClassement h2::after {
+    content: "✦ ✦ ✦";
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    letter-spacing: 10px;
+    color: rgba(244, 208, 63, 0.5);
+}
+
+/* ===== PODIUM en vraies marches ===== */
 
 #podiumClassement {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 12px;
-    margin: 30px 0 34px 0;
+    gap: 14px;
+    margin: 38px 0 36px 0;
 }
 
 .cartePodium {
@@ -1906,102 +2183,120 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 8px 16px 8px;
-    border-radius: 18px;
-    background: linear-gradient(160deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
-    border: 1px solid rgba(255,255,255,0.12);
-    box-shadow: inset 0 2px 8px rgba(255,255,255,0.06), 0 8px 18px rgba(0,0,0,0.35);
-    animation: entreeCartePodium 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+    padding: 22px 8px 18px 8px;
+    border-radius: 16px 16px 8px 8px;
+    background: linear-gradient(160deg, rgba(244,208,63,0.1), rgba(0,0,0,0.35));
+    border: 1px solid rgba(244, 208, 63, 0.3);
+    box-shadow: inset 0 2px 10px rgba(255,255,255,0.05), 0 10px 22px rgba(0,0,0,0.5);
+    animation: entreeCartePodium 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
 }
 
-.cartePodium.position1 { animation-delay: 0.15s; }
+.cartePodium.position1 { animation-delay: 0.18s; }
 .cartePodium.position2 { animation-delay: 0.02s; }
-.cartePodium.position3 { animation-delay: 0.28s; }
+.cartePodium.position3 { animation-delay: 0.32s; }
 
 @keyframes entreeCartePodium {
-    from { opacity: 0; transform: translateY(18px) scale(0.92); }
+    from { opacity: 0; transform: translateY(24px) scale(0.9); }
     to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+/* Vraies marches : hauteurs différentes façon podium olympique */
 .cartePodium.position1 {
     order: 2;
-    padding-top: 30px;
-    padding-bottom: 24px;
-    border-color: rgba(244, 208, 63, 0.6);
-    background: linear-gradient(160deg, rgba(244,208,63,0.2), rgba(255,255,255,0.02));
+    padding-top: 34px;
+    padding-bottom: 34px;
+    border: 2px solid rgba(244, 208, 63, 0.85);
+    background: linear-gradient(160deg, rgba(244,208,63,0.28), rgba(0,0,0,0.3));
     box-shadow:
-        inset 0 2px 10px rgba(255,255,255,0.12),
-        0 0 30px rgba(244, 208, 63, 0.4),
-        0 10px 20px rgba(0,0,0,0.4);
-    animation: entreeCartePodium 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards, lueurOr 2.4s ease-in-out infinite;
+        inset 0 2px 14px rgba(255,255,255,0.12),
+        0 0 45px rgba(244, 208, 63, 0.55),
+        0 14px 26px rgba(0,0,0,0.55);
+    animation: entreeCartePodium 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) backwards, lueurOrIntense 2.2s ease-in-out infinite;
 }
 
-@keyframes lueurOr {
-    0%, 100% { box-shadow: inset 0 2px 10px rgba(255,255,255,0.12), 0 0 24px rgba(244, 208, 63, 0.3), 0 10px 20px rgba(0,0,0,0.4); }
-    50%      { box-shadow: inset 0 2px 10px rgba(255,255,255,0.16), 0 0 40px rgba(244, 208, 63, 0.55), 0 10px 20px rgba(0,0,0,0.4); }
+.cartePodium.position2 {
+    order: 1;
+    padding-bottom: 16px;
+    border-color: rgba(210, 220, 230, 0.6);
+    background: linear-gradient(160deg, rgba(210,220,230,0.12), rgba(0,0,0,0.35));
 }
 
-.cartePodium.position2 { order: 1; border-color: rgba(199, 208, 218, 0.5); }
-.cartePodium.position3 { order: 3; border-color: rgba(205, 138, 74, 0.5); }
+.cartePodium.position3 {
+    order: 3;
+    padding-bottom: 6px;
+    padding-top: 16px;
+    border-color: rgba(205, 138, 74, 0.6);
+    background: linear-gradient(160deg, rgba(205,138,74,0.16), rgba(0,0,0,0.35));
+}
+
+@keyframes lueurOrIntense {
+    0%, 100% { box-shadow: inset 0 2px 14px rgba(255,255,255,0.12), 0 0 35px rgba(244, 208, 63, 0.4), 0 14px 26px rgba(0,0,0,0.55); }
+    50%      { box-shadow: inset 0 2px 14px rgba(255,255,255,0.18), 0 0 60px rgba(244, 208, 63, 0.7), 0 14px 26px rgba(0,0,0,0.55); }
+}
 
 .cartePodiumVide {
-    opacity: 0.25;
+    opacity: 0.2;
     animation: none;
 }
 
 .rangPodium {
     position: absolute;
-    top: -12px;
+    top: -16px;
     left: 50%;
     transform: translateX(-50%);
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 900;
     color: #14101c;
-    background: linear-gradient(180deg, #fff, #d8c07a);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    background: linear-gradient(180deg, #fff8e0, #d8a900);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5), 0 0 14px rgba(244, 208, 63, 0.6);
 }
 
-.position1 .rangPodium { background: linear-gradient(180deg, #fff3d1, #f4d03f); width: 30px; height: 30px; font-size: 14px; top: -14px; }
+.position1 .rangPodium { width: 36px; height: 36px; font-size: 16px; top: -18px; background: linear-gradient(180deg, #fff8e0, #f4d03f); }
 .position2 .rangPodium { background: linear-gradient(180deg, #f2f5f8, #c7d0da); }
 .position3 .rangPodium { background: linear-gradient(180deg, #e8b98a, #cd8a4a); }
 
 .medaillePodium {
-    font-size: 32px;
-    margin-bottom: 8px;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.45));
+    font-size: 34px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 10px rgba(244, 208, 63, 0.5)) drop-shadow(0 4px 6px rgba(0,0,0,0.5));
 }
 
-.position1 .medaillePodium { font-size: 44px; }
+.position1 .medaillePodium { font-size: 50px; }
 
 .pseudoPodium {
+    font-family: 'Georgia', 'Times New Roman', serif;
     font-weight: 900;
-    font-size: 15px;
-    color: #fff6e0;
+    font-size: 16px;
+    color: #fff8e0;
     text-align: center;
     word-break: break-word;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     max-width: 100%;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
-.position1 .pseudoPodium { font-size: 19px; }
+.position1 .pseudoPodium { font-size: 21px; }
 
 .tempsPodium {
     font-size: 14px;
     font-weight: bold;
     color: #f4d03f;
     font-variant-numeric: tabular-nums;
-    padding: 4px 12px;
-    border-radius: 10px;
-    background: rgba(0,0,0,0.25);
+    padding: 5px 14px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(244, 208, 63, 0.3);
 }
 
-.position1 .tempsPodium { font-size: 15px; }
+.position1 .tempsPodium { font-size: 16px; }
+
+/* ===== LISTE DU RESTE DU CLASSEMENT ===== */
 
 #listeClassement {
     list-style: none;
@@ -2009,25 +2304,26 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 9px;
 }
 
 #listeClassement li {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 12px 18px;
-    background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-    border: 1px solid rgba(255,255,255,0.08);
+    gap: 16px;
+    padding: 13px 20px;
+    background: linear-gradient(160deg, rgba(244,208,63,0.06), rgba(255,255,255,0.02));
+    border: 1px solid rgba(244, 208, 63, 0.18);
     border-radius: 14px;
     font-size: 16px;
-    transition: transform 0.15s, background 0.15s;
+    transition: transform 0.15s, background 0.15s, border-color 0.15s;
     animation: entreeLigneListe 0.4s ease backwards;
 }
 
 #listeClassement li:hover {
-    background: linear-gradient(160deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
-    transform: translateX(3px);
+    background: linear-gradient(160deg, rgba(244,208,63,0.14), rgba(255,255,255,0.03));
+    border-color: rgba(244, 208, 63, 0.4);
+    transform: translateX(4px);
 }
 
 #listeClassement li:nth-child(1) { animation-delay: 0.05s; }
@@ -2039,29 +2335,29 @@ body {
 #listeClassement li:nth-child(7) { animation-delay: 0.35s; }
 
 @keyframes entreeLigneListe {
-    from { opacity: 0; transform: translateX(-10px); }
+    from { opacity: 0; transform: translateX(-14px); }
     to   { opacity: 1; transform: translateX(0); }
 }
 
 .rangListe {
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: rgba(216, 192, 122, 0.15);
-    border: 1px solid rgba(216, 192, 122, 0.3);
+    background: rgba(244, 208, 63, 0.12);
+    border: 1px solid rgba(244, 208, 63, 0.4);
     font-weight: 900;
     font-size: 13px;
-    color: #d8c07a;
+    color: #f4d03f;
 }
 
 .pseudoListe {
     flex: 1;
     text-align: left;
-    color: #eafbd7;
+    color: #f3e9d2;
     font-weight: 600;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2077,33 +2373,42 @@ body {
 }
 
 .chargementClassement {
-    color: #d9ecc3;
+    color: #d9c6a0;
     font-style: italic;
-    padding: 20px 0;
+    padding: 24px 0;
 }
 
+/* ===== BOUTON RETOUR — doré et cérémonial ===== */
+
 #boutonRetourClassement {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
     width: 100%;
     box-sizing: border-box;
-    margin-top: 26px;
+    margin-top: 30px;
     padding: 16px;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: bold;
-    color: white;
-    background: linear-gradient(180deg, #79c94a, #4f8f28 70%, #3d7020);
-    border: 4px solid #2d5717;
+    letter-spacing: 1px;
+    color: #14101c;
+    background: linear-gradient(180deg, #fff8e0, #f4d03f 50%, #d8a900 100%);
+    border: 2px solid #8a6a1f;
     border-radius: 16px;
-    box-shadow: 0 6px 0 #1e3a10;
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.5),
+        0 6px 0 #6b4423,
+        0 12px 20px rgba(0,0,0,0.4);
     cursor: pointer;
     transition: 0.15s;
 }
 
 #boutonRetourClassement:hover {
-    filter: brightness(1.1);
+    filter: brightness(1.08);
     transform: translateY(-2px);
 }
 
 #boutonRetourClassement:active {
     transform: translateY(4px);
-    box-shadow: 0 1px 0 #1e3a10;
+    box-shadow: inset 0 2px 3px rgba(255,255,255,0.4), 0 1px 0 #6b4423;
 }
