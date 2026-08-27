@@ -2412,3 +2412,26 @@ body {
     transform: translateY(4px);
     box-shadow: inset 0 2px 3px rgba(255,255,255,0.4), 0 1px 0 #6b4423;
 }
+
+#contenuClassement {
+    overflow-x: hidden; /* supprime le scroll horizontal */
+    overflow-y: auto;
+}
+
+/* Scrollbar discrète qui se fond dans le décor sombre/doré */
+#contenuClassement::-webkit-scrollbar {
+    width: 8px;
+}
+
+#contenuClassement::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#contenuClassement::-webkit-scrollbar-thumb {
+    background: rgba(244, 208, 63, 0.25);
+    border-radius: 10px;
+}
+
+#contenuClassement::-webkit-scrollbar-thumb:hover {
+    background: rgba(244, 208, 63, 0.45);
+}
