@@ -4268,11 +4268,26 @@ for (let i = particules.length - 1; i >= 0; i--) {
 
 if (controlesInverses) {
 
-    ctx.fillStyle = "rgba(244, 208, 63, 0.9)";
-    ctx.font = "bold 26px Arial";
-    ctx.textAlign = "center";
-    ctx.fillText("CONTRÔLES INVERSÉS !", canvas.width / 2, 40);
-    ctx.textAlign = "left";
+    let dureeClignotement = 1800; // les 1,8 dernières secondes avant la fin de l'effet
+    let tempsRestantInversion = finInversion - Date.now();
+    let afficherTexteInversion = true;
+
+    if (tempsRestantInversion <= dureeClignotement && tempsRestantInversion > 0) {
+
+        let tempsEcouleClignotement = dureeClignotement - tempsRestantInversion;
+        afficherTexteInversion = Math.floor(tempsEcouleClignotement / 300) % 2 === 0;
+
+    }
+
+    if (afficherTexteInversion) {
+
+        ctx.fillStyle = "rgba(244, 208, 63, 0.9)";
+        ctx.font = "bold 26px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText("CONTRÔLES INVERSÉS !", canvas.width / 2, 40);
+        ctx.textAlign = "left";
+
+    }
 
 }
 
