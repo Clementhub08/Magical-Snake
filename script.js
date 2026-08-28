@@ -155,34 +155,38 @@ function enregistrerVictoire(tempsFinal) {
 
 function envoyerScoreEnLigne(pseudo, tempsFinal) {
 
-    if (!db || !sessionActuelleRef) return;
+    if (!db) return;
 
     let idJoueur = recupererIdJoueur();
 
-    sessionActuelleRef.update({
-        termine: true,
-        temps: tempsFinal
-    }).then(function () {
+    // Mise à jour de la session : indépendante, ne doit pas bloquer le classement
+    if (sessionActuelleRef) {
+        sessionActuelleRef.update({
+            termine: true,
+            temps: tempsFinal
+        }).catch(function (erreur) {
+            console.error("Erreur mise à jour session :", erreur);
+        });
+    }
 
-        let refClassement = db.collection("classement").doc(idJoueur);
+    // Mise à jour du classement : totalement indépendante
+    let refClassement = db.collection("classement").doc(idJoueur);
 
-        return refClassement.get().then(function (doc) {
+    refClassement.get().then(function (doc) {
 
-            let estMeilleur = !doc.exists || tempsFinal < doc.data().temps;
+        let estMeilleur = !doc.exists || tempsFinal < doc.data().temps;
 
-            if (!estMeilleur) return;
+        if (!estMeilleur) return;
 
-            return refClassement.set({
-                pseudo: pseudo,
-                temps: tempsFinal,
-                sessionRef: sessionActuelleId,
-                date: firebase.firestore.FieldValue.serverTimestamp()
-            });
-
+        return refClassement.set({
+            pseudo: pseudo,
+            temps: tempsFinal,
+            sessionRef: sessionActuelleId,
+            date: firebase.firestore.FieldValue.serverTimestamp()
         });
 
     }).catch(function (erreur) {
-        console.error("Erreur envoi score :", erreur);
+        console.error("Erreur envoi score classement :", erreur);
     });
 
 }
