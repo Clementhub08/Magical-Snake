@@ -1,22 +1,5 @@
 
-let sessionActuelleId = null;
-let sessionActuelleRef = null;
 
-function demarrerSessionServeur() {
-
-    if (!db) return;
-
-    db.collection("sessions").add({
-        debut: firebase.firestore.FieldValue.serverTimestamp(),
-        termine: false
-    }).then(function (ref) {
-        sessionActuelleId = ref.id;
-        sessionActuelleRef = ref;
-    }).catch(function (erreur) {
-        console.error("Erreur création session :", erreur);
-    });
-
-}
 
 // =========================
 // FIREBASE (classement en ligne)
@@ -40,6 +23,25 @@ try {
     console.error("Firebase non initialisé :", erreur);
 }
 
+
+let sessionActuelleId = null;
+let sessionActuelleRef = null;
+
+function demarrerSessionServeur() {
+
+    if (!db) return;
+
+    db.collection("sessions").add({
+        debut: firebase.firestore.FieldValue.serverTimestamp(),
+        termine: false
+    }).then(function (ref) {
+        sessionActuelleId = ref.id;
+        sessionActuelleRef = ref;
+    }).catch(function (erreur) {
+        console.error("Erreur création session :", erreur);
+    });
+
+}
 
 const CLE_PSEUDO = "magicalSnakePseudo";
 
