@@ -124,11 +124,11 @@ function genererIdAleatoire() {
 
 }
 
-function sauvegarderPseudo(pseudo) {
+function sauvegarderProgression(progression) {
     try {
-        localStorage.setItem(CLE_PSEUDO, pseudo);
+        localStorage.setItem(CLE_PROGRESSION, JSON.stringify(progression));
     } catch (erreur) {
-        console.error("Stockage indisponible (pseudo) :", erreur);
+        console.error("Stockage indisponible (progression) :", erreur);
     }
 }
 
