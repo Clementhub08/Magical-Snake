@@ -106,11 +106,12 @@ function recupererIdJoueur() {
         id = genererIdAleatoire();
         try {
             localStorage.setItem(CLE_ID_JOUEUR, id);
-        } catch (erreur) {}
+        } catch (erreur) {
+            console.error("Impossible de sauvegarder l'idJoueur :", erreur);
+        }
     }
 
     return id;
-
 }
 
 function genererIdAleatoire() {
@@ -123,14 +124,12 @@ function genererIdAleatoire() {
 
 }
 
-function sauvegarderProgression(progression) {
-
+function sauvegarderPseudo(pseudo) {
     try {
-        localStorage.setItem(CLE_PROGRESSION, JSON.stringify(progression));
+        localStorage.setItem(CLE_PSEUDO, pseudo);
     } catch (erreur) {
-        // Stockage indisponible (navigation privée, par exemple) : on ignore silencieusement
+        console.error("Stockage indisponible (pseudo) :", erreur);
     }
-
 }
 
 function enregistrerVictoire(tempsFinal) {
